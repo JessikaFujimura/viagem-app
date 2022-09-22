@@ -8,11 +8,11 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@RegisterRestClient(baseUri = "http://localhost:8080/reserva")
+@RegisterRestClient(baseUri = "http://localhost:8182/reserva")
 public interface ReservaService {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Reserva newReserva(Cliente cliente);
+    public String newReserva(Reserva reserva);
 }

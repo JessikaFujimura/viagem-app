@@ -2,9 +2,12 @@ package com.jessikafujimura.cliente;
 
 public class Cliente {
 
-    private Long id;
+    private long id;
 
     private String nome;
+
+    public Cliente() {
+    }
 
     private Cliente(Long id, String nome) {
         this.id = id;
@@ -15,7 +18,7 @@ public class Cliente {
         return new Cliente(id, nome);
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

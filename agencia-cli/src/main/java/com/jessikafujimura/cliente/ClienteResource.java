@@ -5,8 +5,8 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 @Path("/cliente-cli")
 public class ClienteResource {
@@ -16,13 +16,17 @@ public class ClienteResource {
     ClienteService clienteService;
 
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("findById")
+    public Cliente finById(long id){
+        return clienteService.findById(id);
+    }
+
+    @GET
     @Path("getCliente")
-    public Response getCliente(){
+    public String getCliente(){
         Cliente cliente = Cliente.of(9, "Joana");
-
-        Response response = clienteService.newCliente(cliente);
-
-        return Response.status(Status.CREATED).entity(response).build();
+        return clienteService.newCliente(cliente);
     }
 
 }
