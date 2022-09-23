@@ -20,9 +20,9 @@ public class ReservaResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response postReserva(Reserva reserva){
+    public Reserva postReserva(Reserva reserva){
         reserva.id = null;
         reserva.persist();
-        return Response.status(Status.CREATED).entity(reserva).build();
+        return reserva;
     }
 }

@@ -17,12 +17,11 @@ public class ReservaResource {
     @RestClient
     ReservaService reservaService;
 
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("getReserva")
-    public String getReserva(){
-        Reserva reserva = Reserva.of(1L, 2L);
+    @Path("newReserva")
+    public String newReserva(){
+        Reserva reserva = Reserva.of(0, 2);
         return reservaService.newReserva(reserva);
     }
 }
