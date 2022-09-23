@@ -19,7 +19,7 @@ public class ClienteResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("findById")
-    public Cliente finById(@QueryParam("id") long id){
+    public Cliente finById(@QueryParam("id") long id) {
         return clienteService.findById(id);
     }
 
